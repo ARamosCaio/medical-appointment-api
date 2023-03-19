@@ -7,7 +7,7 @@ class Doctor(models.Model):
         max_length=2,
         choices= [
             ('OR', 'Orthopedist'),
-            ('OP', 'Ophthalmology'),
+            ('OP', 'Ophthalmologist'),
             ('GP', 'General Practitioner')
         ],
     )
@@ -21,6 +21,6 @@ class Appointment(models.Model):
     doctor = models.ForeignKey((Doctor), on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.appointment_date}{self.appointment_time}"
+        return f"{self.appointment_date} {self.appointment_time}"
 
 

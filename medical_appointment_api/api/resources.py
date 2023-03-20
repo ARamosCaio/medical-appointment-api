@@ -1,6 +1,7 @@
 from tastypie.resources import ModelResource
 from api.models import Doctor, Appointment
 from tastypie.authorization import Authorization
+from tastypie import fields
 
 class DoctorResource(ModelResource):
     class Meta:
@@ -10,7 +11,10 @@ class DoctorResource(ModelResource):
 
 
 class AppointmentResource(ModelResource):
+    doctor = fields.ForeignKey(DoctorResource, "doctor")
     class Meta:
         queryset = Appointment.objects.all()
         res_name = 'appointment'        
         authorization = Authorization()
+
+ 

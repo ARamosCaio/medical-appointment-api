@@ -18,7 +18,7 @@ class Doctor(models.Model):
 class Appointment(models.Model):
     appointment_time = models.TimeField()
     appointment_date = models.DateField()
-    doctor = models.ForeignKey((Doctor), on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.appointment_date} {self.appointment_time}"
